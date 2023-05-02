@@ -44,4 +44,10 @@ export class UserService {
     this.userList[index].likecount += 1;
     this.users.next(this.userList);
   }
+
+  unLikeUser(user:User):void{
+    let index : number = this.userList.findIndex(d => d === user);
+    this.userList[index].likecount -= 1;
+    this.users.next(this.userList);
+  }
 }
