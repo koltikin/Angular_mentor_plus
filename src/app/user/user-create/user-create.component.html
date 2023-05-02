@@ -2,27 +2,23 @@
 <div class="row">
   <div class="col-6">
     <br>
-    <form>
+    <form #userAdd = "ngForm" (ngSubmit)="addUser(userAdd.value)">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Username</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" ngModel>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" >Submit</button>
   </form>
   <br>
   <div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action">User 1
-      <i class="fa fa-trash float-end"></i>
-    </button>
-    <button type="button" class="list-group-item list-group-item-action">User 2
-      <i class="fa fa-trash float-end"></i>
-    </button>
-    <button type="button" class="list-group-item list-group-item-action">User 3
-      <i class="fa fa-trash float-end"></i>
+    <button type="button" class="list-group-item list-group-item-action"
+            *ngFor="let user of userList"> {{ user.username }}
+      <i class="fa fa-trash float-end"
+      (click)="deleteUser(user.username)"></i>
     </button>
   </div>
   </div>
