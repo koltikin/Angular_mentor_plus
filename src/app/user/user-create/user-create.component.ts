@@ -14,7 +14,15 @@ export class UserCreateComponent implements OnInit {
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
-    this.userList = this.userService.getUsers();
+    // this.userList = this.userService.getUsers();
+   this.userService.getUsers().subscribe(
+      response => {
+        this.userList = response
+      },
+      err => {
+          console.log('error');
+      }
+    );
   }
 
   addUser(item : any){
