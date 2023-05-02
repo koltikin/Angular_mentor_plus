@@ -16,14 +16,15 @@
   <br>
   <div class="list-group">
     <button type="button" class="list-group-item list-group-item-action"
-            *ngFor="let user of userList"> {{ user.username }}
+            *ngFor="let user of userList"
+            (click)="onSelectUser(user)"> {{ user.username }}
       <i class="fa fa-trash float-end"
       (click)="deleteUser(user.username)"></i>
     </button>
   </div>
   </div>
   <div class="col-6">
-    <app-user-detail></app-user-detail>
+    <app-user-detail [selectedUser]="selectedUser" (userDelete)="deleteUser($event.username)"></app-user-detail>
   </div>  
        
 </div>

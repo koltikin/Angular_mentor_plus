@@ -1,9 +1,10 @@
 <br>
 <br>
-<div class="card" style="width: 32rem;">
+<div class="card" style="width: 32rem;" *ngIf="selectedUser">
     <img src="assets/images/userone.png" class="card-img-top" alt="selected_user">
     <div class="card-body">
-      <p class="card-text">username</p>
-      <p class="card-text">password</p>
+      <p class="card-text">{{ selectedUser.username }}</p>
+      <button class="btn btn-danger" (click)="onDeleteUser(selectedUser)">Delete</button>
+
     </div>
 </div>

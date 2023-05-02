@@ -7,7 +7,12 @@ import { User } from 'src/app/shared/user';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent {
-  userList : User[] = [];
+  userList : User[] = [
+    { username : 'Mike', password : 'Abc1' },
+    { username : 'John', password : 'Abc1' },
+    { username : 'Mary', password : 'Abc1' }
+  ];
+  selectedUser: User | undefined;
 
   addUser(item : any){
     let user : User = {username: item.username , password : item.password };
@@ -17,5 +22,9 @@ export class UserCreateComponent {
   deleteUser(name : string){
     let index : number = this.userList.findIndex(d => d.username === name);
     this.userList.splice(index, 1);
+  }
+
+  onSelectUser(user: User){
+    this.selectedUser = user;
   }
 }
