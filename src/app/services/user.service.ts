@@ -7,9 +7,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class UserService {
   userList : User[] = [
-    { username : 'Mike', likecount : 1 },
-    { username : 'John', likecount : 1 },
-    { username : 'Mary', likecount : 1 }
+    { username : 'Ower', likecount : 1 },
+    { username : 'Matt', likecount : 1 },
+    { username : 'Sahin', likecount : 1 }
   ];
 
   private users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(this.userList);
