@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/user';
 
@@ -12,10 +13,14 @@ export class UserCreateComponent implements OnInit {
   likedUsers: User[] = [];
   selectedUser: User | undefined;
 
+  @ViewChild('userForm') userForm: NgForm | undefined;
+  user?: User;
+
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
     // this.userList = this.userService.getUsers();
+   this.user = { username : '' , likecount: 0 };
    this.userService.getUsers().subscribe(
       response => {
         this.userList = response
@@ -26,8 +31,9 @@ export class UserCreateComponent implements OnInit {
     );
   }
 
-  addUser(item : any){
-    let user : User = {username: item.username , likecount : 0 };
+  addUser(){
+    let user : User = this.userForm?.value;
+    user['likecount'] = 0;
     // this.userList.push(user);
     this.userService.addUser(user);
   }

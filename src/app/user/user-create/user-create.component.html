@@ -2,12 +2,18 @@
 <div class="row">
   <div class="col-6">
     <br>
-    <form #userAdd = "ngForm" (ngSubmit)="addUser(userAdd.value)">
+    <form #userForm = "ngForm" (ngSubmit)="addUser()" novalidate>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Username</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" ngModel>
+        <label for="exampleInputEmail1" class="form-label">Mentor Name</label>
+        <input type="text" class="form-control" id="username" aria-describedby="emailHelp" 
+               name="username" 
+               required
+               [(ngModel)]="user!.username"
+               minlength="4" >
       </div>
-      <button type="submit" class="btn btn-primary" >Add User</button>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid" >Add</button>
+      </div>
   </form>
   <br>
   <div class="list-group">
