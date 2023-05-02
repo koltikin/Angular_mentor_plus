@@ -7,9 +7,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class UserService {
   userList : User[] = [
-    { username : 'Mike', password : 'Abc1' },
-    { username : 'John', password : 'Abc1' },
-    { username : 'Mary', password : 'Abc1' }
+    { username : 'Mike', likecount : 1 },
+    { username : 'John', likecount : 1 },
+    { username : 'Mary', likecount : 1 }
   ];
 
   private users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(this.userList);
@@ -36,6 +36,12 @@ export class UserService {
 
   deleteUser(index: number):void{
     this.userList.splice(index, 1);
+    this.users.next(this.userList);
+  }
+
+  likeUser(user:User):void{
+    let index : number = this.userList.findIndex(d => d === user);
+    this.userList[index].likecount += 1;
     this.users.next(this.userList);
   }
 }

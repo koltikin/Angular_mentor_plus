@@ -8,10 +8,10 @@ import { User } from 'src/app/shared/user';
 })
 export class UserDetailComponent{
   @Input('selectedUser') selectedUser?: User; 
-  @Output() userDelete:EventEmitter<User> =new EventEmitter<User>();
+  @Output() userLikeEvent:EventEmitter<User> =new EventEmitter<User>();
   
-  onDeleteUser(user : User){
-    this.userDelete.emit(user);
+  onLikeUser(user : User){
+    this.userLikeEvent.emit(user);
   }
 
 }

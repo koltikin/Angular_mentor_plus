@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<br>
+<div class="row text-center">
+    <h2>Top 10 Most Liked Users!</h2>
+</div>
+<br>
+<div class="row">
+    <div class="card d-flex align-items-center m-2" style="width: 10rem;" *ngFor="let user of likedUser$ | async">
+        <img src="assets/images/userone.png" class="card-img-top" alt="selected_user">
+        <div class="card-body">
+          <p class="card-text text-center">{{ user.username }}</p>
+          <span class="badge text-bg-success">{{ user.likecount}}</span>
+        </div>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { User } from 'src/app/shared/user';
 })
 export class UserCreateComponent implements OnInit {
   userList : User[] = [];
+  likedUsers: User[] = [];
   selectedUser: User | undefined;
 
   constructor(private userService: UserService){}
@@ -26,7 +27,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   addUser(item : any){
-    let user : User = {username: item.username , password : item.password };
+    let user : User = {username: item.username , likecount : 0 };
     // this.userList.push(user);
     this.userService.addUser(user);
   }
@@ -39,5 +40,10 @@ export class UserCreateComponent implements OnInit {
 
   onSelectUser(user: User){
     this.selectedUser = user;
+  }
+
+  likeUser(user: User){
+    // this.likedUsers.push(user);
+    this.userService.likeUser(user);
   }
 }
