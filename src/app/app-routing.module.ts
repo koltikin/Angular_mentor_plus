@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'users', component: UserCreateComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'users/:username', component: UserDetailComponent},
+  { path: '**', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
 ];
