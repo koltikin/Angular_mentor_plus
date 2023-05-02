@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, filter} from 'rxjs';
+import { Observable, filter, switchMap} from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/user';
 

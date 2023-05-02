@@ -29,6 +29,11 @@ export class UserService {
   //   this.userList.push(user);
   // }
 
+  getUserByUsername(userName: string): User{
+    let index : number = this.userList.findIndex(d => d.username === userName);
+    return this.userList[index];
+  };
+
   addUser(user: User): void{
     this.userList.push(user);
     this.users.next(this.userList);
