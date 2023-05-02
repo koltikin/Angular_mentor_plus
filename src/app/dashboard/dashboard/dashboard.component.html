@@ -1,0 +1,16 @@
+<br>
+<div class="row text-center">
+    <h2>Most Liked Mentors!</h2>
+</div>
+<br>
+<div class="row d-flex justify-content-center align-items-center">
+    <div class="card align-items-center m-2" style="width: 10rem;" *ngFor="let user of likedUser$ | async">
+        <img src="assets/images/userone.png" class="card-img-top" alt="selected_user">
+        <div class="card-body  ">
+          <p class="card-text text-center">{{ user.username }}</p>
+          <a class="btn btn-primary btn-outline stretched-link" [routerLink]="['/users', user.username]">
+            <span class="badge">{{ user.likecount}}</span>
+          </a>
+        </div>
+    </div>
+</div>
