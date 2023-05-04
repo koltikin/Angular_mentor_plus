@@ -36,6 +36,7 @@ export class UserCreateComponent implements OnInit {
     user['likecount'] = 0;
     // this.userList.push(user);
     this.userService.addUser(user);
+    this.userForm?.reset();
   }
 
   deleteUser(name : string){

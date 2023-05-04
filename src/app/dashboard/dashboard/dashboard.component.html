@@ -4,7 +4,10 @@
 </div>
 <br>
 <div class="row d-flex justify-content-center align-items-center">
-    <div class="card align-items-center m-2" style="width: 10rem;" *ngFor="let user of likedUser$ | async">
+    <div class="card align-items-center m-2" 
+         style="width: 10rem;" 
+         *ngFor="let user of likedUser$ | async"
+         [ngStyle]="{'border-style':user.likecount > 1 ? 'dashed' : 'solid' }">
         <img src="assets/images/userone.png" class="card-img-top" alt="selected_user">
         <div class="card-body  ">
           <p class="card-text text-center">{{ user.username }}</p>
